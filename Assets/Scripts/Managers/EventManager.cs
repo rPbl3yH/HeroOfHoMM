@@ -6,6 +6,7 @@ public class EventManager : MonoBehaviour
 {
     public Action OnStartedGame;
     public Action OnLoseGame;
+    public Action OnWinGame;
     public Action OnChoseSkillCard;
  
 
@@ -21,4 +22,7 @@ public class EventManager : MonoBehaviour
         OnChoseSkillCard?.Invoke();
     }
 
+    public void WinGame() {
+        OnWinGame?.Invoke();
+    }
 }

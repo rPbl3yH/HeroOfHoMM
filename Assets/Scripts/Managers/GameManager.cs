@@ -53,6 +53,12 @@ public class GameManager : MonoBehaviour
         EventManager.LoseGame();
     }
 
+    public void WinGame() {
+        IsPlaying = false;
+        UIController.FinishMenu.Setup(EnemyManager.KilledEnemyCount, Player.PlayerStats.Level);
+        EventManager.WinGame();
+    }
+
     public void RestartScene() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

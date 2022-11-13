@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: Fireball Active Skill
   m_EditorClassIdentifier: 
   Name: "\u041E\u0433\u043D\u0435\u043D\u043D\u044B\u0439 \u0448\u0430\u0440"
-  Desctiprion: "\u0421\u0442\u0440\u0435\u043B\u044F\u0435\u0442 \u043E\u0433\u043D\u0435\u043D\u043D\u044B\u043C
-    \u0448\u0430\u0440\u043E\u043C \u0432\u043E \u0432\u0440\u0430\u0433\u0430"
-  Image: {fileID: 21300000, guid: b7c2b45dc5ac98d40954c0a5df7b7b05, type: 3}
+  Desctiprion: "\u0421\u043E\u0437\u0434\u0430\u0435\u0442 \u043E\u0433\u043D\u0435\u043D\u043D\u044B\u0439
+    \u0448\u0430\u0440"
+  Image: {fileID: 21300000, guid: 014c0234d0d60b84ea0ebfa3400af3d9, type: 3}
   Level: 0
   AllowedFeatures: 13
   <FeaturesLevel>k__BackingField:
   - FeatureValues:
     - Feature: 1
-      Value: 2
+      Value: 4
     - Feature: 2
       Value: 0
     - Feature: 4
@@ -34,11 +34,11 @@ MonoBehaviour:
       Value: 0
   - FeatureValues:
     - Feature: 1
-      Value: 1.5
+      Value: 4
     - Feature: 2
       Value: 0
     - Feature: 4
-      Value: 10
+      Value: 20
     - Feature: 8
       Value: 2
     - Feature: 16
@@ -47,104 +47,104 @@ MonoBehaviour:
       Value: 0
   - FeatureValues:
     - Feature: 1
-      Value: 1.5
+      Value: 3
     - Feature: 2
       Value: 0
     - Feature: 4
-      Value: 10
+      Value: 20
     - Feature: 8
-      Value: 2
+      Value: 3
     - Feature: 16
       Value: 0
     - Feature: 32
       Value: 0
   - FeatureValues:
     - Feature: 1
-      Value: 1.5
+      Value: 3
     - Feature: 2
       Value: 0
     - Feature: 4
-      Value: 10
+      Value: 30
     - Feature: 8
-      Value: 2
+      Value: 3
     - Feature: 16
       Value: 0
     - Feature: 32
       Value: 0
   - FeatureValues:
     - Feature: 1
-      Value: 1.5
+      Value: 3
     - Feature: 2
       Value: 0
     - Feature: 4
-      Value: 10
+      Value: 30
     - Feature: 8
-      Value: 2
+      Value: 3.5
     - Feature: 16
       Value: 0
     - Feature: 32
       Value: 0
   - FeatureValues:
     - Feature: 1
-      Value: 1.5
+      Value: 3
     - Feature: 2
       Value: 0
     - Feature: 4
-      Value: 10
+      Value: 54
     - Feature: 8
-      Value: 2
+      Value: 3.5
     - Feature: 16
       Value: 0
     - Feature: 32
       Value: 0
   - FeatureValues:
     - Feature: 1
-      Value: 1.5
+      Value: 2.5
     - Feature: 2
       Value: 0
     - Feature: 4
-      Value: 10
+      Value: 54
     - Feature: 8
-      Value: 2
+      Value: 3.5
     - Feature: 16
       Value: 0
     - Feature: 32
       Value: 0
   - FeatureValues:
     - Feature: 1
-      Value: 1.5
+      Value: 2.5
     - Feature: 2
       Value: 0
     - Feature: 4
-      Value: 10
+      Value: 54
     - Feature: 8
-      Value: 2
+      Value: 5
     - Feature: 16
       Value: 0
     - Feature: 32
       Value: 0
   - FeatureValues:
     - Feature: 1
-      Value: 1.5
+      Value: 2.5
     - Feature: 2
       Value: 0
     - Feature: 4
-      Value: 10
+      Value: 62
     - Feature: 8
-      Value: 2
+      Value: 5
     - Feature: 16
       Value: 0
     - Feature: 32
       Value: 0
   - FeatureValues:
     - Feature: 1
-      Value: 1.5
+      Value: 2.5
     - Feature: 2
       Value: 0
     - Feature: 4
-      Value: 10
+      Value: 70
     - Feature: 8
-      Value: 2
+      Value: 5
     - Feature: 16
       Value: 0
     - Feature: 32
@@ -152,13 +152,78 @@ MonoBehaviour:
   <AdditionsFeaturesLevel>k__BackingField:
   - FeatureValues:
     - Feature: 1
-      Value: 2
+      Value: 4
     - Feature: 2
       Value: 0
     - Feature: 4
       Value: 10
     - Feature: 8
       Value: 2
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 0
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 10
+    - Feature: 8
+      Value: 0
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: -1
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 0
+    - Feature: 8
+      Value: 1
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 0
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 10
+    - Feature: 8
+      Value: 0
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 0
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 0
+    - Feature: 8
+      Value: 0.5
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 0
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 24
+    - Feature: 8
+      Value: 0
     - Feature: 16
       Value: 0
     - Feature: 32
@@ -184,7 +249,7 @@ MonoBehaviour:
     - Feature: 4
       Value: 0
     - Feature: 8
-      Value: 0
+      Value: 1.5
     - Feature: 16
       Value: 0
     - Feature: 32
@@ -195,7 +260,7 @@ MonoBehaviour:
     - Feature: 2
       Value: 0
     - Feature: 4
-      Value: 0
+      Value: 8
     - Feature: 8
       Value: 0
     - Feature: 16
@@ -208,72 +273,7 @@ MonoBehaviour:
     - Feature: 2
       Value: 0
     - Feature: 4
-      Value: 0
-    - Feature: 8
-      Value: 0
-    - Feature: 16
-      Value: 0
-    - Feature: 32
-      Value: 0
-  - FeatureValues:
-    - Feature: 1
-      Value: 0
-    - Feature: 2
-      Value: 0
-    - Feature: 4
-      Value: 0
-    - Feature: 8
-      Value: 0
-    - Feature: 16
-      Value: 0
-    - Feature: 32
-      Value: 0
-  - FeatureValues:
-    - Feature: 1
-      Value: 0
-    - Feature: 2
-      Value: 0
-    - Feature: 4
-      Value: 0
-    - Feature: 8
-      Value: 0
-    - Feature: 16
-      Value: 0
-    - Feature: 32
-      Value: 0
-  - FeatureValues:
-    - Feature: 1
-      Value: 0
-    - Feature: 2
-      Value: 0
-    - Feature: 4
-      Value: 0
-    - Feature: 8
-      Value: 0
-    - Feature: 16
-      Value: 0
-    - Feature: 32
-      Value: 0
-  - FeatureValues:
-    - Feature: 1
-      Value: 0
-    - Feature: 2
-      Value: 0
-    - Feature: 4
-      Value: 0
-    - Feature: 8
-      Value: 0
-    - Feature: 16
-      Value: 0
-    - Feature: 32
-      Value: 0
-  - FeatureValues:
-    - Feature: 1
-      Value: 0
-    - Feature: 2
-      Value: 0
-    - Feature: 4
-      Value: 0
+      Value: 8
     - Feature: 8
       Value: 0
     - Feature: 16

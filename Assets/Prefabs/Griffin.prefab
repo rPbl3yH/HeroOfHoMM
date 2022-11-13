@@ -1113,7 +1113,7 @@ Transform:
   - {fileID: 5343273491891561361}
   - {fileID: 5343273492355616791}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &5343273490803089966
 Rigidbody:
@@ -1129,7 +1129,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &-7463206722416561225
 MonoBehaviour:
@@ -1152,9 +1152,9 @@ MonoBehaviour:
   _critText: Crit!
   _plagueStartEffect: {fileID: 8564745349118783132, guid: c3ce706886830b049b56905ce7e2b899,
     type: 3}
-  _speed: 2
-  _speedRotation: 10
-  _damage: 5
+  _speed: 2.5
+  _speedRotation: 30
+  _damage: 10
   _timeToAttack: 2
   _dealyAttackAnim: 0.15
   <Healths>k__BackingField: 100

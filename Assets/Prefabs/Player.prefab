@@ -562,7 +562,7 @@ Transform:
   - {fileID: 2030968141}
   - {fileID: 1532338622700174190}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3379818385571298309
 Rigidbody:
@@ -612,6 +612,7 @@ MonoBehaviour:
   <PlayerMove>k__BackingField: {fileID: 3379818385571298308}
   <Animator>k__BackingField: {fileID: 8912108698100366533}
   ShieldEffect: {fileID: 1698889760139017682}
+  _visual: {fileID: 3488096056155697888}
 --- !u!114 &3379818385571298305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1567,6 +1568,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShieldEffect
       objectReference: {fileID: 0}
+    - target: {fileID: 3477734541195803034, guid: a3cf4e388cfe47d4fa384b9393d90ef6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3478120862951698040, guid: a3cf4e388cfe47d4fa384b9393d90ef6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3481663206321247648, guid: a3cf4e388cfe47d4fa384b9393d90ef6,
         type: 3}
       propertyPath: m_RootOrder
@@ -1625,7 +1636,7 @@ PrefabInstance:
     - target: {fileID: 3639195311871005468, guid: a3cf4e388cfe47d4fa384b9393d90ef6,
         type: 3}
       propertyPath: moveWithTransform
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3639279476092404922, guid: a3cf4e388cfe47d4fa384b9393d90ef6,
         type: 3}
@@ -1635,6 +1646,11 @@ PrefabInstance:
     - target: {fileID: 3639279476092404922, guid: a3cf4e388cfe47d4fa384b9393d90ef6,
         type: 3}
       propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3639279476092404922, guid: a3cf4e388cfe47d4fa384b9393d90ef6,
+        type: 3}
+      propertyPath: moveWithTransform
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

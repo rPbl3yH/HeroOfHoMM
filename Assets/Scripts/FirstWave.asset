@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2f90e28a4833204aabd0420d970a4a8, type: 3}
+  m_Name: FirstWave
+  m_EditorClassIdentifier: 
+  Creatures:
+  - Enemy: {fileID: 4272981427020001152, guid: e837b9443579b1f4c93f9b60713e91ad, type: 3}
+    StartCooldown: 1
+    Cooldown: 0.7
+    Count: 200
+  - Enemy: {fileID: 4272981427020001152, guid: e837b9443579b1f4c93f9b60713e91ad, type: 3}
+    StartCooldown: 5
+    Cooldown: 1.5
+    Count: 100
+  - Enemy: {fileID: 4272981427020001152, guid: e837b9443579b1f4c93f9b60713e91ad, type: 3}
+    StartCooldown: 50
+    Cooldown: 2
+    Count: 30
+  - Enemy: {fileID: 3494964465606515241, guid: 44a34de307dce00429efcf585d44b356, type: 3}
+    StartCooldown: 30
+    Cooldown: 10
+    Count: 20
+  - Enemy: {fileID: 1544699931858602716, guid: 6e0d241c39819234fb596d095483fdbd, type: 3}
+    StartCooldown: 80
+    Cooldown: 18
+    Count: 20
+  - Enemy: {fileID: -7463206722416561225, guid: 74d8eccfa9d0f35408604e72e0412a56,
+      type: 3}
+    StartCooldown: 100
+    Cooldown: 25
+    Count: 20

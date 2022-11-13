@@ -9288,7 +9288,7 @@ Transform:
   - {fileID: 1763931099489698878}
   - {fileID: 1764191422124183582}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!198 &1924680407313062658
 ParticleSystem:
@@ -9506,8 +9506,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 0.4
+      scalar: 2
+      minScalar: 1.5
       maxCurve:
         serializedVersion: 2
         m_Curve:

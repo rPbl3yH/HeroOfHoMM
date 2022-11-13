@@ -6,14 +6,24 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     [SerializeField] private Enemy _enemyPrefab;
+    [SerializeField] private WaveInfo[] _waveInfo;
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private float _timeToSpawn;
 
     [SerializeField] private float _minRadius, _maxRadius;
     private List<Enemy> _enemies = new List<Enemy>();
     private float _timer;
+    private int _allEnemyCount;
+    public int KilledEnemyCount { get; private set; }
 
-    public int KilledEnemyCount { get; private set; }   
+    private void Start() {
+        foreach (var wave in _waveInfo) {
+            foreach (var waveCreatureInfo in wave.Creatures) {
+                waveCreatureInfo.Init();
+                _allEnemyCount += waveCreatureInfo.Count;
+            }
+        }
+    }
 
     private void Update() {
         if (!GameManager.Instance.IsPlaying) return;
@@ -21,18 +31,31 @@ public class EnemyManager : MonoBehaviour
         _timer += Time.deltaTime;
         if (_timer > _timeToSpawn) {
             _timer = 0;
-            CreateEnemy();
+            
+            //CreateEnemy(_enemyPrefab);
+        }
+        foreach (var wave in _waveInfo) {
+            foreach (var waveCreatureInfo in wave.Creatures) {
+                waveCreatureInfo.UpdateCall(Time.deltaTime);
+            }
+        }
+        if(KilledEnemyCount >= _allEnemyCount) {
+            GameManager.Instance.WinGame();
         }
     }
 
-    private void CreateEnemy() {
+    private void CreateEnemy(Enemy enemy) {
         Vector2 randomVector = Random.insideUnitCircle;
         Vector2 randomPoint = randomVector.normalized * Random.Range(_minRadius, _maxRadius);
 
         Vector3 spawnPosition = _playerTransform.position + new Vector3(randomPoint.x, 0f, randomPoint.y);
-        Enemy newEnemy = Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity);
+        Enemy newEnemy = Instantiate(enemy, spawnPosition, Quaternion.identity);
         newEnemy.Setup(_playerTransform, this);
         _enemies.Add(newEnemy);
+    }
+
+    public void Spawn(Enemy enemy) {
+        CreateEnemy(enemy);
     }
 
     private void OnDrawGizmos() {

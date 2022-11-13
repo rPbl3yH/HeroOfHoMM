@@ -9,8 +9,8 @@ public class FireballSkill : ActiveSkill
     protected override void Produce() {
         base.Produce();
         var playerTransform = GameManager.Instance.Player.transform;
-        var targetEnemy = GameManager.Instance.EnemyManager.GetNearestEnemyTransform(playerTransform.position, 1)[0].transform;
-        if (targetEnemy == null) return;
+        var targetEnemy = GameManager.Instance.EnemyManager.GetNearestEnemyTransform(playerTransform.position, 1);
+        if (targetEnemy.Length == 0) return;
 
         FireBall fireball = Instantiate(_fireballPrefab, playerTransform.position, Quaternion.identity);
 
@@ -18,7 +18,7 @@ public class FireballSkill : ActiveSkill
         var damage = GetCurrentFeaturesValue(Feature.Damage);
         
        
-        FireBallStats fireBallStats = new FireBallStats(radius, damage, targetEnemy);
+        FireBallStats fireBallStats = new FireBallStats(radius, damage, targetEnemy[0].transform);
         fireball.Setup(fireBallStats);
     }
 }

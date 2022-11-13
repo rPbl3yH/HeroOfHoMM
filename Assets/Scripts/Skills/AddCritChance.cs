@@ -11,7 +11,7 @@ public class AddCritChance : PassiveSkill
     }
 
     public override string GetCurrentLevelDecription() {
-        var result = $"Increace crit chance +<color=#00ff00ff>{_upgradeValue}% </color>";
+        var result = $"вероятность крита +<color=#00ff00ff>{_upgradeValue}% </color>";
         return result;
     }
 }

@@ -15,9 +15,9 @@ public class PlayerMove : MonoBehaviour
     }
 
     private void Update() {
-        if (!GameManager.Instance.IsPlaying) return;
-
+        
         _moveDireciton = Vector3.zero;
+        if (!GameManager.Instance.IsPlaying) return;
         if (_inputService.Axis.sqrMagnitude <= 0) {
             return;
         }

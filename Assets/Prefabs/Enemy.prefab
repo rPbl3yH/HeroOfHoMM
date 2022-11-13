@@ -316,10 +316,14 @@ MonoBehaviour:
     type: 3}
   _hitTextPrefab: {fileID: 9425514122116421, guid: ec14e593f61c25749b750cd90e74d72a,
     type: 3}
+  _animator: {fileID: 0}
+  _critText: Crit!
+  _plagueStartEffect: {fileID: 0}
   _speed: 3
-  _speedRotation: 10
+  _speedRotation: 20
   _damage: 3
   _timeToAttack: 1
+  _dealyAttackAnim: 0.3
   <Healths>k__BackingField: 50
 --- !u!54 &8070266177131705575
 Rigidbody:

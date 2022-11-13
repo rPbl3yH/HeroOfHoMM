@@ -15,6 +15,7 @@ public class Mine : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if (other.attachedRigidbody) {
             if (other.attachedRigidbody.GetComponent<Enemy>()) {
+                StartExplotionEffect();
                 Collider[] enemyAround = Physics.OverlapSphere(transform.position, _radius, _layerMask);
                 foreach (var enemyCol in enemyAround) {
                     if (enemyCol.attachedRigidbody) {
@@ -25,6 +26,11 @@ public class Mine : MonoBehaviour
                 Die();
             }
         }
+    }
+
+    private void StartExplotionEffect() {
+        ParticleSystem effect = Instantiate(_explosionEffectPrefab,transform.position, Quaternion.identity); ;
+        Destroy(effect, 2f);
     }
 
     private void Die() {

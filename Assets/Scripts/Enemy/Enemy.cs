@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
+[Serializable]
 public class Enemy : MonoBehaviour, IPlagueable
 {
     private const string AttackAnim = "IsAttack";
@@ -37,7 +39,7 @@ public class Enemy : MonoBehaviour, IPlagueable
 
     private void Update() {
         _timer += Time.deltaTime;
-
+        
         Vector3 toPlayer = PlayerTransform.position - transform.position;
         Quaternion targetRotation = Quaternion.LookRotation(toPlayer);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * _speedRotation);

@@ -11,7 +11,7 @@ public class PlayerCooldown : PassiveSkill
     }
 
     public override string GetCurrentLevelDecription() {
-        var result = $"Ускоряет перезарядку активных навыков на <color=#00ff00ff>{_upgradeValue * 100}% </color>";
+        var result = $"Ускоряет перезарядку на <color=#00ff00ff>{_upgradeValue * 100}% </color>";
         return result;
     }
 }

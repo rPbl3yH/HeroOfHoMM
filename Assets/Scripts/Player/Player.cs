@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Player : MonoBehaviour, IDamageable
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour, IDamageable
     public PlayerStats PlayerStats { get; private set; }
 
     public ParticleSystem ShieldEffect;
+    [SerializeField] private GameObject _visual;
 
     float _timer;
 
@@ -34,7 +36,13 @@ public class Player : MonoBehaviour, IDamageable
         RestartGame();
     }
 
+    private void Start() {
+        GameManager.Instance.EventManager.OnLoseGame += OnLoseGame;
+    }
 
+    private void OnLoseGame() {
+        _visual.SetActive(false);
+    }
 
     private void RestartGame() {
         PlayerStats = new PlayerStats();
