@@ -2,22 +2,23 @@ using UnityEngine;
 
 public class PlayerStats : IDamageable
 {
-    private const int CritValueUpgrading = 2;
-    private float damage = 1;
+    private float damage = 10;
+    private float speed = 5;
+    private float expValue;
 
     public PlayerStats() {
         Healths = MaxHealths;
-        
     }
 
     public float MaxHealths { get; private set; } = 100;
+    public float MaxHealthsMultiplier { get; private set; } = 1.05f;
     public float Healths { get; private set; }
     public float Damage { get => damage * DamageMultuplier; private set => damage = value; }
-    public float DamageMultuplier { get; private set; } = 1;
     public float CritChance { get; private set; } = 5;
+    public float CritMultiplier { get; private set; } = 1.5f;
     public float Armor { get; private set; } = 0;
-    public float Speed { get; private set; } = 5;
-    public float ExperienceValue { get; private set; }
+    public float Speed { get => speed; private set => speed = value * SpeedMultipler; }
+    public float ExperienceValue { get => expValue; private set => expValue = value * ExperienceMultiplier; }
     public float NextLevelExperienceValue { get; private set; } = 50;
     public float DistanceToPullExp { get; private set; } = 2;
     public int Level { get; private set; } = 1;
@@ -25,6 +26,15 @@ public class PlayerStats : IDamageable
 
     public bool Invelnerable { get; private set; } = false;
 
+    public float ExperienceMultiplier { get; private set; } = 1;
+
+    public float SpeedMultipler { get; private set; } = 1;
+
+    public float DamageMultuplier { get; private set; } = 1;
+
+    public float ColldownMultiplier { get; private set; } = 1;
+
+    public float RegenerationHpValue { get; private set; } = 0;
 
     public bool GetCritChance() {
         int randomValue = Random.Range(1, 100);
@@ -32,33 +42,17 @@ public class PlayerStats : IDamageable
     }
 
     public void UpgradeMaxHealth() {
-        MaxHealths = UpgradeStat10Percent(MaxHealths);
-    }
-
-    public void UpgradeDamageMultiplier() {
-        DamageMultuplier = UpgradeStat10Percent(DamageMultuplier);
-    }
-
-    public void UpgradeCritChance() {
-        CritChance += CritValueUpgrading;
-    }
-
-    private float UpgradeStat10Percent(float value) {
-        var result = value + value * 0.1f;
-        return result;
-    }
-
-    public void UpgradeSpeed(float percent) {
-        Speed *= (1 + percent/100f);
+        MaxHealths *= MaxHealthsMultiplier;
+        Healths *= MaxHealthsMultiplier;
     }
 
     public void TakeDamage(float damage) {
         if (Invelnerable) return;
-        Healths -= damage - GetAbsorbingDamage(damage);
-        //Debug.Log($"Take Damage {damage}. HP: {Healths}");
+        var damageValue = damage - GetAbsorbingDamage(damage);
+        Healths -= damageValue;
+        GameManager.Instance.Player.CreateHitText(damageValue);
         if (Healths <= 0) {
-            Debug.Log("Player die");
-            //Вызвать ивент смерти игрока
+            GameManager.Instance.GameOver();
         }
     }
 
@@ -68,19 +62,57 @@ public class PlayerStats : IDamageable
 
     public void TakeExperience(float expValue) {
         ExperienceValue += expValue;
-        if(ExperienceValue >= NextLevelExperienceValue) {
+        if (ExperienceValue >= NextLevelExperienceValue) {
             ExperienceValue -= NextLevelExperienceValue;
-            NextLevelExperienceValue *= 1.1f;
+            NextLevelExperienceValue *= 1.5f;
             LevelUp();
-            //Debug.Log("Next level exp value " + NextLevelExperienceValue);
-            //Debug.Log("Exp value now " + ExperienceValue);
-            //Debug.Log("Level " + Level);
         }
     }
 
     public void LevelUp() {
-        
         Level++;
+        UpgradeMaxHealth();
         GameManager.Instance.SkillsManager.ShowCards();
+    }
+
+    public void UpgradeDamageMultiplier(float value) {
+        DamageMultuplier += value;
+    }
+
+    public void UpgradeExperienceMultiplier(float value) {
+        ExperienceMultiplier += value;
+    }
+
+    public void UpgradeColldownMultiplier(float value) {
+        ColldownMultiplier -= value;
+    }
+
+    public void UpgradeRegeration(float value) {
+        RegenerationHpValue += value;
+    }
+
+    public void UpgradeCritChance(float value) {
+        CritChance += value;
+    }
+
+    public void UpgradeSpeed(float value) {
+        SpeedMultipler += value;
+    }
+
+    public void UpgradeArmorPlayer(float value) {
+        Armor += value;
+    }
+
+    public void Regenerate() {
+        Healths += RegenerationHpValue;
+        Healths = Mathf.Clamp(Healths, 0, MaxHealths);
+    }
+
+    public float GetCritDamage() {
+        return Damage * CritMultiplier;
+    }
+
+    public void SetInverulable(bool value) {
+        Invelnerable = value;
     }
 }

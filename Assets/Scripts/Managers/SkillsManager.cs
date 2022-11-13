@@ -37,9 +37,10 @@ public class SkillsManager : MonoBehaviour
     }
 
     private void Update() {
-        //foreach (var skill in _appliedActiveSkills) {
-        //    skill.UpdateCall(this, Time.deltaTime);
-        //}
+        if (!GameManager.Instance.IsPlaying) return;
+        foreach (var skill in _appliedActiveSkills) {
+            skill.UpdateCall(this, Time.deltaTime);
+        }
 
         if (Input.GetKeyDown(KeyCode.Space)) {
             ShowCards();
@@ -78,8 +79,11 @@ public class SkillsManager : MonoBehaviour
             skillsForCards.Add(skillsToShow[randomNumbers[i]]);
         }
 
-        GameManager.Instance.UIController.CardsManager.ShowCards(skillsForCards);
-        Time.timeScale = 0f;
+        if (skillsForCards.Count > 0) {
+            GameManager.Instance.UIController.CardsManager.ShowCards(skillsForCards);
+            Time.timeScale = 0f;
+        }
+        
     }
 
     private int[] RandomArrayInt(List<Skill> skillsToShow, int countInt) {
@@ -107,6 +111,7 @@ public class SkillsManager : MonoBehaviour
             if (!_appliedActiveSkills.Contains(activeSkill)) {
                 _activeSkills.Remove(activeSkill);
                 _appliedActiveSkills.Add(activeSkill);
+                GameManager.Instance.UIController.TopIconManager.AddIconSkill(skill);
             }
         }
 
@@ -115,12 +120,12 @@ public class SkillsManager : MonoBehaviour
             if (!_appliedPassiveSkills.Contains(passiveSkill)) {
                 _passiveSkills.Remove(passiveSkill);
                 _appliedPassiveSkills.Add(passiveSkill);
+                GameManager.Instance.UIController.TopIconManager.AddIconSkill(skill);
             }
         }
 
         skill.Activate();
-        skill.Create(this); 
-
+        
         Time.timeScale = 1f;
     }
 

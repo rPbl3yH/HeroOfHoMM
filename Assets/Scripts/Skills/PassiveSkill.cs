@@ -5,7 +5,5 @@ using UnityEngine;
 
 public class PassiveSkill : Skill
 {
-    public override void Create(SkillsManager skillsManager) {
-        
-    }
+    
 }

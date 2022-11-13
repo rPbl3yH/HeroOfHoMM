@@ -3,8 +3,13 @@ using UnityEngine;
 
 public class CardsManager : MonoBehaviour
 {
+    public Sprite ActiveSkillSprite;
+    public Sprite PassiveSkillSprite;
+
     [SerializeField] private Card[] _cards;
     [SerializeField] private GameObject _canvasJoystic;
+
+
 
     private void Start() {
         foreach (var card in _cards) {

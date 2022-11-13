@@ -21,7 +21,7 @@ internal class ExperienceDrop : MonoBehaviour
 
     private void Update() {
         _body.Rotate(Vector3.up * _speedRotation);
-
+        if (_playerTransform == null) return;
         var distanceDropPlayer = Vector3.Distance(_playerTransform.position, transform.position);
         if (distanceDropPlayer < _distanceToGo) {
             transform.position = Vector3.MoveTowards(transform.position, _playerTransform.position, Time.deltaTime * _speedToPlayer);

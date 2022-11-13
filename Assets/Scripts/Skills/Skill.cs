@@ -10,9 +10,19 @@ public abstract class Skill : ScriptableObject
     public Sprite Image;
     public int Level = 0;
 
-    public abstract void Create(SkillsManager skillsManager);
 
     public virtual void Activate() {
         Level++;
+
+        SetLevel();
+    }
+
+    public virtual void SetLevel() {
+
+    }
+
+
+    public virtual string GetCurrentLevelDecription() {
+        return "";
     }
 }

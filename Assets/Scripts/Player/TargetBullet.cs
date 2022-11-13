@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro.EditorUtilities;
+using UnityEngine;
 
 class TargetBullet : MonoBehaviour
 {
@@ -27,6 +28,18 @@ class TargetBullet : MonoBehaviour
         Destroy(gameObject, 3f);
     }
 
+    private void Update() {
+        if (_target == null) {
+            var enemies = GameManager.Instance.EnemyManager.GetNearestEnemyTransform(transform.position, 1);
+            if(enemies.Length > 0) {
+                _target = enemies[0].transform;
+            }
+            else {
+                Destroy(gameObject);
+            }
+        }
+    }
+
     private void FixedUpdate() {
         Vector3 toTarget = _target.position - transform.position;
         _rb.rotation = Quaternion.LookRotation(toTarget);
@@ -38,23 +51,39 @@ class TargetBullet : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision) {
-        if (collision.rigidbody.TryGetComponent(out Enemy enemy)) {
-            if (enemy.TryGetComponent(out IDamageable damageable)) {
-                damageable.TakeDamage(_damage);
-                print("Plague " + _isPlague);
-                if (_isPlague) {
-                    Collider[] enemiesAround = Physics.OverlapSphere(_colliderPoint.position, _plagueStats.Radius, _layerMask);
-                    print("EnemiesAround " + enemiesAround.Length);
-                    print("Radius " + _plagueStats.Radius);
-                    foreach (var enemyCollider in enemiesAround) {
-                        enemyCollider.GetComponent<Enemy>().TakePlagueDamage(_plagueStats);
-                    }
-                }
+        
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.attachedRigidbody) {
+            if (other.attachedRigidbody.TryGetComponent(out Enemy enemy)) {
+                MakeDamage(enemy);
+                MakePlagueAround();
 
                 Die();
             }
         }
+        
     }
 
-   
+    private void MakePlagueAround() {
+        if (_isPlague) {
+            Collider[] enemiesAround = Physics.OverlapSphere(_colliderPoint.position, _plagueStats.Radius, _layerMask);
+            foreach (var enemyCollider in enemiesAround) {
+                if (enemyCollider.attachedRigidbody) {
+                    enemyCollider.attachedRigidbody.GetComponent<Enemy>().TakePlagueDamage(_plagueStats);
+                }
+
+            }
+        }
+    }
+
+    private void MakeDamage(Enemy enemy) {
+        var damage = _damage;
+        if (GameManager.Instance.Player.PlayerStats.GetCritChance()) {
+            damage = GameManager.Instance.Player.PlayerStats.GetCritDamage();
+            enemy.CreateCritText();
+        }
+        enemy.TakeDamage(damage);
+    }
 }

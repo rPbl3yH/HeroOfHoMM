@@ -13,7 +13,11 @@ public class EnemyManager : MonoBehaviour
     private List<Enemy> _enemies = new List<Enemy>();
     private float _timer;
 
+    public int KilledEnemyCount { get; private set; }   
+
     private void Update() {
+        if (!GameManager.Instance.IsPlaying) return;
+
         _timer += Time.deltaTime;
         if (_timer > _timeToSpawn) {
             _timer = 0;
@@ -43,6 +47,7 @@ public class EnemyManager : MonoBehaviour
     public void CallDie(Enemy enemy) {
         if (_enemies.Contains(enemy)) {
             _enemies.Remove(enemy);
+            KilledEnemyCount++;
         }
     }
 

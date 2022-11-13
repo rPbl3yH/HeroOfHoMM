@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     [field: SerializeField] public EventManager EventManager { get; private set; }
     [field: SerializeField] public SkillsManager SkillsManager { get; private set; }
     [field: SerializeField] public UIController UIController { get; private set; }
+
+    public bool IsPlaying { get; private set; } 
 
     
     private void Awake() {
@@ -34,6 +37,23 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update() {
-        
+        if (Input.GetKeyDown(KeyCode.E)) {
+            //Player.PlayerStats.LevelUp();
+        }
+    }
+
+    public void StartGame() {
+        IsPlaying = true;
+        EventManager.StartedGame();
+    }
+
+    public void GameOver() {
+        IsPlaying = false;
+        UIController.FinishMenu.Setup(EnemyManager.KilledEnemyCount, Player.PlayerStats.Level);
+        EventManager.LoseGame();
+    }
+
+    public void RestartScene() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

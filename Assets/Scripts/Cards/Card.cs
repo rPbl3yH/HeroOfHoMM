@@ -13,10 +13,11 @@ public class Card : MonoBehaviour
     [SerializeField] private TMP_Text _titleText;
     [SerializeField] private TMP_Text _levelText;
     [SerializeField] private TMP_Text _descriptionText;
-    [SerializeField] private Image _skillImage;
+    [SerializeField] private Image _imageBack;
+    [SerializeField] private Image _imageSkill;
 
-    [SerializeField] private Skill _skill;
-    private UnityEvent _event;
+    private Skill _skill;
+
     public void Initialize() {
         
         _button.onClick.AddListener(OnClick);
@@ -26,8 +27,12 @@ public class Card : MonoBehaviour
         _skill = skill;
         _titleText.text = skill.Name;
 
-        _levelText.text = "LVL " + skill.Level;
-        _descriptionText.text = skill.Desctiprion;
+        _levelText.text = "LVL " + (skill.Level + 1);
+        _descriptionText.text = skill.GetCurrentLevelDecription();
+        _imageSkill.sprite = skill.Image;
+
+        var cardsManager = GameManager.Instance.UIController.CardsManager;
+        _imageBack.sprite = skill is ActiveSkill ? cardsManager.ActiveSkillSprite : cardsManager.PassiveSkillSprite;
     }
 
     public void Hide() {
@@ -36,6 +41,7 @@ public class Card : MonoBehaviour
 
     private void OnClick() {
         GameManager.Instance.SkillsManager.AddSkill(_skill);
+        GameManager.Instance.EventManager.ChoseSkillCard();
     }
 
 }

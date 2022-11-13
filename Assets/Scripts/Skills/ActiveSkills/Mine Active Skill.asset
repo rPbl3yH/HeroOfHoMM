@@ -1,0 +1,283 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fcc87e596f60da449af9ea0b4597d43, type: 3}
+  m_Name: Mine Active Skill
+  m_EditorClassIdentifier: 
+  Name: Mine
+  Desctiprion: Mine
+  Image: {fileID: 0}
+  Level: 0
+  AllowedFeatures: 13
+  <FeaturesLevel>k__BackingField:
+  - FeatureValues:
+    - Feature: 1
+      Value: 1
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 10
+    - Feature: 8
+      Value: 2
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 3
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 30
+    - Feature: 8
+      Value: 4
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 3
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 60
+    - Feature: 8
+      Value: 5
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 3
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 60
+    - Feature: 8
+      Value: 5
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 3
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 60
+    - Feature: 8
+      Value: 5
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 3
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 60
+    - Feature: 8
+      Value: 5
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 3
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 60
+    - Feature: 8
+      Value: 5
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 3
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 60
+    - Feature: 8
+      Value: 5
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 3
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 60
+    - Feature: 8
+      Value: 5
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 3
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 60
+    - Feature: 8
+      Value: 5
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  <AdditionsFeaturesLevel>k__BackingField:
+  - FeatureValues:
+    - Feature: 1
+      Value: 1
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 10
+    - Feature: 8
+      Value: 2
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 2
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 20
+    - Feature: 8
+      Value: 2
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 0
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 30
+    - Feature: 8
+      Value: 1
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 0
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 0
+    - Feature: 8
+      Value: 0
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 0
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 0
+    - Feature: 8
+      Value: 0
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 0
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 0
+    - Feature: 8
+      Value: 0
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 0
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 0
+    - Feature: 8
+      Value: 0
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 0
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 0
+    - Feature: 8
+      Value: 0
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 0
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 0
+    - Feature: 8
+      Value: 0
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  - FeatureValues:
+    - Feature: 1
+      Value: 0
+    - Feature: 2
+      Value: 0
+    - Feature: 4
+      Value: 0
+    - Feature: 8
+      Value: 0
+    - Feature: 16
+      Value: 0
+    - Feature: 32
+      Value: 0
+  _minePrefab: {fileID: 8567520489637488303, guid: b75d46a6dd6da5b4c8b729bf739cd2f7,
+    type: 3}

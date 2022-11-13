@@ -4,27 +4,28 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private Transform _spawnBulletPoint;
     [SerializeField] private TargetBullet _bulletPrefab;
-    [SerializeField] private float _attackValue;
 
-    PlagueSkillStats _plagueSkillStats;
+    private PlagueSkillStats _plagueSkillStats;
 
     private bool _isPlague;
     private float _timer;
 
-
     private void Update() {
+        if (!GameManager.Instance.IsPlaying) return;
         _timer += Time.deltaTime;
-        if (_timer > GameManager.Instance.Player.PlayerStats.DelayForMainAttack) {
+        var playerStats = GameManager.Instance.Player.PlayerStats;
+        var cooldown = playerStats.DelayForMainAttack * playerStats.ColldownMultiplier;
+        if (_timer > cooldown) {
             _timer = 0;
             Shot();
         }
     }
 
     private void Shot() {
-        var targetEnemy = GameManager.Instance.EnemyManager.GetNearestEnemyTransform(transform.position, 1)[0].transform;
-        if (targetEnemy == null) return;
+        var targetEnemies = GameManager.Instance.EnemyManager.GetNearestEnemyTransform(transform.position, 1);
+        if (targetEnemies.Length == 0) return; 
         TargetBullet newBullet = Instantiate(_bulletPrefab, _spawnBulletPoint.position, Quaternion.identity);
-        newBullet.Setup(targetEnemy, _attackValue);
+        newBullet.Setup(targetEnemies[0].transform, GameManager.Instance.Player.PlayerStats.Damage);
         if (_isPlague) {
             newBullet.Setup(_isPlague, _plagueSkillStats);
         }

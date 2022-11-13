@@ -4,6 +4,7 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private Rigidbody _rb;
+    
     private IInputService _inputService;
     private Camera _camera;
     private Vector3 _moveDireciton;
@@ -14,6 +15,8 @@ public class PlayerMove : MonoBehaviour
     }
 
     private void Update() {
+        if (!GameManager.Instance.IsPlaying) return;
+
         _moveDireciton = Vector3.zero;
         if (_inputService.Axis.sqrMagnitude <= 0) {
             return;
@@ -21,10 +24,13 @@ public class PlayerMove : MonoBehaviour
         _moveDireciton = _camera.transform.TransformDirection(_inputService.Axis);
         _moveDireciton.y = 0f;
         _moveDireciton.Normalize();
+
+        
         //transform.rotation = Quaternion.LookRotation(_rb.velocity, Vector3.up);
     }
 
     private void FixedUpdate() {
+        _player.Animator.SetFloat("_velocity", _rb.velocity.magnitude);
         _rb.velocity = _moveDireciton * _player.PlayerStats.Speed;
         if(_moveDireciton.sqrMagnitude > Mathf.Epsilon) {
            
