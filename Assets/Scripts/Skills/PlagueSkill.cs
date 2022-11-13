@@ -10,9 +10,6 @@ public class PlagueSkill : ActiveSkill
         var dps = FeaturesLevel[Level - 1].GetValueFeature(Feature.DPS);
         var duration = FeaturesLevel[Level - 1].GetValueFeature(Feature.Duration);
 
-        Debug.Log($"Level {Level - 1} radius {radius} dps {dps} duration {duration}");
-
-
         PlagueSkillStats skillStats = new PlagueSkillStats(radius, dps, duration);
 
         GameManager.Instance.Player.PlayerAttack.ActivatePlague(skillStats);

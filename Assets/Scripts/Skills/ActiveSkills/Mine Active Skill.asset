@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fcc87e596f60da449af9ea0b4597d43, type: 3}
   m_Name: Mine Active Skill
   m_EditorClassIdentifier: 
-  Name: Mine
-  Desctiprion: Mine
-  Image: {fileID: 0}
+  Name: "\u0420\u0443\u043D\u043D\u044B\u0435 \u043C\u0438\u043D\u044B"
+  Desctiprion: 
+  Image: {fileID: 21300000, guid: 1508910548567444391c6ade0144190b, type: 3}
   Level: 0
   AllowedFeatures: 13
   <FeaturesLevel>k__BackingField:

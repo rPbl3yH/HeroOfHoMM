@@ -117,7 +117,7 @@ Transform:
   - {fileID: 3620059721960758210}
   - {fileID: 642667096163568907}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3494964465606515241
 MonoBehaviour:
@@ -137,6 +137,9 @@ MonoBehaviour:
   _hitTextPrefab: {fileID: 9425514122116421, guid: ec14e593f61c25749b750cd90e74d72a,
     type: 3}
   _animator: {fileID: 6786597143414861797}
+  _critText: Crit!
+  _plagueStartEffect: {fileID: 8564745349118783132, guid: c3ce706886830b049b56905ce7e2b899,
+    type: 3}
   _speed: 2
   _speedRotation: 5
   _damage: 3

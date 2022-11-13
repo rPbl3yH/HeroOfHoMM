@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour, IPlagueable
     [SerializeField] private HitText _hitTextPrefab;
     [SerializeField] private Animator _animator;
     [SerializeField] private string _critText = "Crit!";
+    [SerializeField] private ParticleSystem _plagueStartEffect;
 
     private EnemyManager _enemyManager;
 
@@ -56,6 +57,7 @@ public class Enemy : MonoBehaviour, IPlagueable
     }
 
     public virtual void TakeDamage(float damage) {
+        
         Healths -= damage;
         CreateHitText(damage);
         if (Healths <= 0) {
@@ -125,14 +127,17 @@ public class Enemy : MonoBehaviour, IPlagueable
     }
 
     public void TakePlagueDamage(PlagueSkillStats plagueSkillStats) {
+        if (this is Undead) return;
         if (!_isPlague)
             StartCoroutine(StartDamagePlague(plagueSkillStats));
         _isPlague = true;
     }
 
     private IEnumerator StartDamagePlague(PlagueSkillStats plagueSkillStats) {
+        //CreateStartPlagueEffect();
         float _timer = 0;
         while (_timer < plagueSkillStats.Duration) {
+            CreatePlagueEffect();
             TakeDamage(plagueSkillStats.DPS);
             yield return new WaitForSeconds(1f);
             _timer += 1f;
@@ -141,7 +146,12 @@ public class Enemy : MonoBehaviour, IPlagueable
     }
 
     public void CreatePlagueEffect() {
-        //throw new System.NotImplementedException();
+        ParticleSystem effect = Instantiate(_plagueStartEffect, transform.position, Quaternion.identity);
+        Destroy(effect, 2f);
+    }
+
+    public void CreateStartPlagueEffect() {
+        
     }
 
     public void CreateCritText() {

@@ -1,14 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Ghost : Warrior
+public class Ghost : Undead
 {
-    
-    int _currentCountMiss, _currentCountHit;
+    private int _currentCountMiss, _currentCountHit;
 
     public override void TakeDamage(float damage) {
-
         var randomPoint = Random.Range(0, 100f);
         if (randomPoint >= 50f) {
             if (_currentCountHit >= 2) {
@@ -35,7 +31,6 @@ public class Ghost : Warrior
     }
 
     private void Miss() {
-        print("miss");
         CreateHitText("Miss");
     }
 }

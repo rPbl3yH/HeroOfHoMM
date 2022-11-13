@@ -48,8 +48,8 @@ MonoBehaviour:
   _text: {fileID: 2409350098826848175}
   _healColor: {r: 0, g: 0, b: 0, a: 0}
   _hitColor: {r: 1, g: 1, b: 1, a: 0}
-  _speed: 2
-  _timeToDeactive: 1
+  _speed: 1
+  _timeToDeactive: 2
   _timeToWait: 1
 --- !u!1 &5142905175289983151
 GameObject:

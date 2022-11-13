@@ -39,6 +39,7 @@ public class ActiveSkill : Skill
 
 
     public virtual void UpdateCall(SkillsManager skillsManager, float frameTime) {
+        if (!GameManager.Instance.IsPlaying) return;
         if(!_isProducing)
             _timer += frameTime;
         

@@ -21,8 +21,10 @@ public class SkyShieldSkill : ActiveSkill
 
     private void SetShield(bool value) {
         GameManager.Instance.Player.PlayerStats.SetInverulable(value);
-        if (_shieldEffectPrefab) {
-            _shieldEffectPrefab.gameObject.SetActive(value);
+        var effect = GameManager.Instance.Player.ShieldEffect;
+        if (effect) {
+            effect.gameObject.SetActive(value);
+            effect.Play();
         }
     }
 

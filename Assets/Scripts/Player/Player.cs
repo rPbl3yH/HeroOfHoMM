@@ -10,6 +10,8 @@ public class Player : MonoBehaviour, IDamageable
 
     public PlayerStats PlayerStats { get; private set; }
 
+    public ParticleSystem ShieldEffect;
+
     float _timer;
 
     public void TakeDamage(float damage) {
@@ -31,6 +33,8 @@ public class Player : MonoBehaviour, IDamageable
     private void Awake() {
         RestartGame();
     }
+
+
 
     private void RestartGame() {
         PlayerStats = new PlayerStats();

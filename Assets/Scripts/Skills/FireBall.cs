@@ -18,7 +18,15 @@ public class FireBall :MonoBehaviour
     }
 
     private void Update() {
-        if (_target == null) Destroy(gameObject);
+        if (_target == null) {
+            var enemies = GameManager.Instance.EnemyManager.GetNearestEnemyTransform(transform.position, 1);
+            if (enemies.Length > 0) {
+                _target = enemies[0].transform;
+            }
+            else {
+                Destroy(gameObject);
+            }
+        }
     }
 
     private void FixedUpdate() {
@@ -36,12 +44,14 @@ public class FireBall :MonoBehaviour
     }
 
     public void Explosion() {
+        Instantiate(_explosionEffect, transform.position, Quaternion.identity);
         Collider[] aroundEnemyColliders = Physics.OverlapSphere(transform.position, _radius, _layerMask);
         foreach (var collider in aroundEnemyColliders) {
             if (collider.attachedRigidbody.TryGetComponent(out Enemy enemy)) {
                 enemy.TakeDamage(_damage);
             }
         }
+        Destroy(gameObject);
     }
 }
 

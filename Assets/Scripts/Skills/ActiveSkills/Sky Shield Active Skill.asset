@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41106720d4eda33409e7ce8779976437, type: 3}
   m_Name: Sky Shield Active Skill
   m_EditorClassIdentifier: 
-  Name: SkyShied
-  Desctiprion: SkyShied
-  Image: {fileID: 0}
+  Name: "\u041D\u0435\u0431\u0435\u0441\u043D\u044B\u0439 \u0449\u0438\u0442"
+  Desctiprion: 
+  Image: {fileID: 21300000, guid: d160e45b0eb4f1849b58e86d674a419a, type: 3}
   Level: 0
   AllowedFeatures: 17
   <FeaturesLevel>k__BackingField:

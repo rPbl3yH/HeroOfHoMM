@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 4680643988492791333}
-  _speed: 4
+  _speed: 7
   _explosionEffect: {fileID: 8267443752500904150, guid: 1f969921f7deca7428d48a433a25dae1,
     type: 3}
   _layerMask:
@@ -280,6 +280,36 @@ PrefabInstance:
     - target: {fileID: 5215068591531970045, guid: 116dea7d11d392a479b1dfe0f392ccdd,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5215068591531970045, guid: 116dea7d11d392a479b1dfe0f392ccdd,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400357558834715335, guid: 116dea7d11d392a479b1dfe0f392ccdd,
+        type: 3}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400357558834715335, guid: 116dea7d11d392a479b1dfe0f392ccdd,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400357558834715335, guid: 116dea7d11d392a479b1dfe0f392ccdd,
+        type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400357558834715335, guid: 116dea7d11d392a479b1dfe0f392ccdd,
+        type: 3}
+      propertyPath: startDelay.maxCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400357558834715335, guid: 116dea7d11d392a479b1dfe0f392ccdd,
+        type: 3}
+      propertyPath: startDelay.maxCurve.m_Curve.Array.data[1].value
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
