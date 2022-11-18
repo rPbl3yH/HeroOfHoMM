@@ -60,10 +60,12 @@ public class EnemyManager : MonoBehaviour
 
     private void OnDrawGizmos() {
         if (_playerTransform) {
+#if UNITY_EDITOR
             Handles.color = Color.red;
             Handles.DrawWireDisc(_playerTransform.position, Vector3.up, _minRadius);
             Handles.color = Color.white;
             Handles.DrawWireDisc(_playerTransform.position, Vector3.up, _maxRadius);
+#endif
         }
     }
 

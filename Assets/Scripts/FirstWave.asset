@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: FirstWave
   m_EditorClassIdentifier: 
   Creatures:
-  - Enemy: {fileID: 4272981427020001152, guid: e837b9443579b1f4c93f9b60713e91ad, type: 3}
+  - Enemy: {fileID: 4854535667161507397, guid: ba6fa4d114a502e42b25c137a79e9d28, type: 3}
     StartCooldown: 1
     Cooldown: 0.7
     Count: 200
-  - Enemy: {fileID: 4272981427020001152, guid: e837b9443579b1f4c93f9b60713e91ad, type: 3}
+  - Enemy: {fileID: 4854535667161507397, guid: ba6fa4d114a502e42b25c137a79e9d28, type: 3}
     StartCooldown: 5
     Cooldown: 1.5
     Count: 100
-  - Enemy: {fileID: 4272981427020001152, guid: e837b9443579b1f4c93f9b60713e91ad, type: 3}
+  - Enemy: {fileID: 4854535667161507397, guid: ba6fa4d114a502e42b25c137a79e9d28, type: 3}
     StartCooldown: 50
     Cooldown: 2
     Count: 30

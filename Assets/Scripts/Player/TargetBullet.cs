@@ -1,5 +1,4 @@
-﻿using TMPro.EditorUtilities;
-using UnityEngine;
+﻿using UnityEngine;
 
 class TargetBullet : MonoBehaviour
 {
@@ -9,10 +8,10 @@ class TargetBullet : MonoBehaviour
     [SerializeField] private float _speed, _speedRotation;
     [SerializeField] private LayerMask _layerMask;
     [SerializeField] private Transform _colliderPoint;
-    bool _isPlague;
+    private bool _isPlague;
 
-    PlagueSkillStats _plagueStats;
-    float _damage;
+    private PlagueSkillStats _plagueStats;
+    private float _damage;
 
     public void Setup(Transform transform, float damage) {
         _target = transform;
@@ -31,7 +30,7 @@ class TargetBullet : MonoBehaviour
     private void Update() {
         if (_target == null) {
             var enemies = GameManager.Instance.EnemyManager.GetNearestEnemyTransform(transform.position, 1);
-            if(enemies.Length > 0) {
+            if (enemies.Length > 0) {
                 _target = enemies[0].transform;
             }
             else {
@@ -51,7 +50,6 @@ class TargetBullet : MonoBehaviour
     }
 
     private void OnCollisionEnter(Collision collision) {
-        
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -63,7 +61,6 @@ class TargetBullet : MonoBehaviour
                 Die();
             }
         }
-        
     }
 
     private void MakePlagueAround() {
@@ -73,7 +70,6 @@ class TargetBullet : MonoBehaviour
                 if (enemyCollider.attachedRigidbody) {
                     enemyCollider.attachedRigidbody.GetComponent<Enemy>().TakePlagueDamage(_plagueStats);
                 }
-
             }
         }
     }
