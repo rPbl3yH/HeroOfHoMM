@@ -20,6 +20,7 @@ public class PlayerStats : IDamageable
     public float Speed { get => speed; private set => speed = value * SpeedMultipler; }
     public float ExperienceValue { get => expValue; private set => expValue = value * ExperienceMultiplier; }
     public float NextLevelExperienceValue { get; private set; } = 50;
+    public float NextLevelExperienceMultiplier { get; private set; } = 1.25f;
     public float DistanceToPullExp { get; private set; } = 2;
     public int Level { get; private set; } = 1;
     public float DelayForMainAttack { get; private set; } = 1.5f;
@@ -64,7 +65,7 @@ public class PlayerStats : IDamageable
         ExperienceValue += expValue;
         if (ExperienceValue >= NextLevelExperienceValue) {
             ExperienceValue -= NextLevelExperienceValue;
-            NextLevelExperienceValue *= 1.5f;
+            NextLevelExperienceValue *= NextLevelExperienceMultiplier;
             LevelUp();
         }
     }

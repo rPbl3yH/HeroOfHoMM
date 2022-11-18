@@ -82,28 +82,14 @@ public class Enemy : MonoBehaviour, IPlagueable
         hit.Setup(text);
     }
 
-    private void OnCollisionStay(Collision collision) {
-        if (collision.rigidbody.TryGetComponent(out Player player)) {
-            if (_timer > _timeToAttack) {
-                _timer = 0;
-                Attack(player);
+    private void OnTriggerEnter(Collider other) {
+        if (other.attachedRigidbody) {
+            if (other.attachedRigidbody.TryGetComponent(out Player player)) {
+                if (_timer > _timeToAttack) {
+                    _timer = 0;
+                    Attack(player);
+                }
             }
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision) {
-        if (collision.rigidbody.TryGetComponent(out Player player)) {
-            _isPlayerInCollision = true;
-            if (_timer > _timeToAttack) {
-                _timer = 0;
-                Attack(player);
-            }
-        }
-    }
-
-    private void OnCollisionExit(Collision collision) {
-        if (collision.rigidbody.TryGetComponent(out Player player)) {
-            _isPlayerInCollision = false;
         }
     }
 
@@ -116,9 +102,9 @@ public class Enemy : MonoBehaviour, IPlagueable
     private IEnumerator DoAttack(IDamageable damageable) {
         yield return new WaitForSeconds(_dealyAttackAnim);
         StartCoroutine(StopAnimAttack());
-        if (!_isPlayerInCollision) {
-            yield break;
-        }
+        //if (!_isPlayerInCollision) {
+        //    yield break;
+        //}
 
         damageable.TakeDamage(_damage);
     }

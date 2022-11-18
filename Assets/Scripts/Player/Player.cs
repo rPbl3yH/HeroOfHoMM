@@ -13,7 +13,7 @@ public class Player : MonoBehaviour, IDamageable
 
     public ParticleSystem ShieldEffect;
     [SerializeField] private GameObject _visual;
-
+    [SerializeField] private Collider[] _colliders;
     float _timer;
 
     public void TakeDamage(float damage) {
@@ -42,6 +42,9 @@ public class Player : MonoBehaviour, IDamageable
 
     private void OnLoseGame() {
         _visual.SetActive(false);
+        foreach (var collider in _colliders) {
+            collider.enabled = false;
+        }
     }
 
     private void RestartGame() {

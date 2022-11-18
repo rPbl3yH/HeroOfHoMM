@@ -15,7 +15,7 @@ MonoBehaviour:
   Creatures:
   - Enemy: {fileID: 4854535667161507397, guid: ba6fa4d114a502e42b25c137a79e9d28, type: 3}
     StartCooldown: 1
-    Cooldown: 0.7
+    Cooldown: 0.5
     Count: 200
   - Enemy: {fileID: 4854535667161507397, guid: ba6fa4d114a502e42b25c137a79e9d28, type: 3}
     StartCooldown: 5

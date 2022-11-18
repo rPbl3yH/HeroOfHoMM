@@ -30,6 +30,7 @@ public class FireBall :MonoBehaviour
     }
 
     private void FixedUpdate() {
+        if (_target == null) return;
         Vector3 toTarget = _target.position - transform.position;
         _rb.rotation = Quaternion.LookRotation(toTarget);
         _rb.velocity = transform.forward * _speed;
